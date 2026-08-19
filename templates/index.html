@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KING's Obfuscator</title>
+    <style>
+        :root {
+            --bg-color: #07060a;
+            --card-bg: #100e17;
+            --purple-neon: #a855f7;
+            --purple-glow: rgba(168, 85, 247, 0.3);
+            --text-white: #ffffff;
+            --text-gray: #9ca3af;
+            --border-color: rgba(168, 85, 247, 0.25);
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            box-sizing: border-box;
+            background-color: rgba(7, 6, 10, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        .logo span {
+            color: var(--purple-neon);
+            text-shadow: 0 0 12px var(--purple-glow);
+        }
+        .badge {
+            background: rgba(168, 85, 247, 0.1);
+            color: var(--purple-neon);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .main-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 25px rgba(168, 85, 247, 0.08);
+            box-sizing: border-box;
+            text-align: center;
+        }
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        h1 span {
+            color: var(--purple-neon);
+            text-shadow: 0 0 20px var(--purple-glow);
+        }
+        p.subtitle {
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            background-color: #0b0910;
+            color: #e2e8f0;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 12px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            resize: vertical;
+            box-sizing: border-box;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        textarea:focus {
+            border-color: var(--purple-neon);
+            box-shadow: 0 0 15px var(--purple-glow);
+        }
+        .btn {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: white;
+            font-weight: bold;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn:hover {
+            transform: translateY(--2px);
+            box-shadow: 0 6px 25px rgba(168, 85, 247, 0.7);
+        }
+        .result-section {
+            margin-top: 30px;
+            text-align: left;
+        }
+        .result-section h3 {
+            font-size: 16px;
+            color: var(--purple-neon);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        /* Stil pentru zona de reclame */
+        .ad-container {
+            width: 100%;
+            height: 90px;
+            background-color: #0b0910;
+            border: 1px dashed var(--border-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+            font-size: 13px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">KING'S <span>OBFUSCATOR</span></div>
+        <div class="badge">Elite Security</div>
+    </header>
+
+    <div class="main-container">
+        <!-- Aici poți plasa codul scriptului de reclamă primit de la o rețea de anunțuri -->
+        <div class="ad-container">
+            <span>Advertisement Space</span>
+        </div>
+
+        <h1>Secure. Protect. <br><span>Dominate.</span></h1>
+        <p class="subtitle">The ultimate obfuscation and protection system for your Roblox scripts.</p>
+        
+        <form method="POST">
+            <textarea name="lua_code" placeholder="Paste your Lua script here...">{{ original }}</textarea><br>
+            <button type="submit" class="btn">Obfuscate Script</button>
+        </form>
+
+        {% if obfuscated %}
+        <div class="result-section">
+            <h3>Obfuscated Result:</h3>
+            <textarea readonly>{{ obfuscated }}</textarea>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
